@@ -1,5 +1,6 @@
 "use client";
 
+import FeedbackForm from "@/components/FeedbackForm";
 import React from "react";
 
 export default function page() {
@@ -11,6 +12,8 @@ export default function page() {
              <h1 className="text-4xl md:text-5xl font-bold text-foreground text-balance">Feedback Hub</h1>
              <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">Your voice matters. Share your feedback and help us build something amazing together.</p>
           </div>
+
+          <FeedbackForm />
       </div>
     </main>
   );

@@ -1,28 +1,25 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-
 export default function FeedbackList({ feedback }) {
   if (!feedback || feedback.length === 0) {
     return (
-      <Card className="w-full max-w-4xl mx-auto">
-        <CardContent className="text-center py-12">
-          <p className="text-muted-foreground text-lg">
+      <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-lg border border-gray-200">
+        <div className="text-center py-12">
+          <p className="text-gray-600 text-lg">
             No feedback submitted yet. Be the first to share your thoughts!
           </p>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     );
   }
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-4">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-foreground mb-2">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Recent Feedback
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-gray-600">
           {feedback.length}{" "}
           {feedback.length === 1 ? "submission" : "submissions"}
         </p>
@@ -30,16 +27,16 @@ export default function FeedbackList({ feedback }) {
 
       <div className="grid gap-4">
         {feedback.map((item) => (
-          <Card
+          <div
             key={item.id}
-            className="border border-border hover:border-primary/50 transition-colors"
+            className="bg-white rounded-xl shadow-md border border-gray-200 hover:border-purple-300 transition-colors"
           >
-            <CardHeader className="pb-3">
+            <div className="px-6 pt-6 pb-3">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-lg font-semibold text-foreground">
+                <h3 className="text-lg font-semibold text-gray-900">
                   {item.name}
-                </CardTitle>
-                <Badge variant="secondary" className="text-xs">
+                </h3>
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
                   {new Date(item.createdAt).toLocaleDateString("en-US", {
                     month: "short",
                     day: "numeric",
@@ -47,14 +44,14 @@ export default function FeedbackList({ feedback }) {
                     hour: "2-digit",
                     minute: "2-digit",
                   })}
-                </Badge>
+                </span>
               </div>
-              <p className="text-sm text-muted-foreground">{item.email}</p>
-            </CardHeader>
-            <CardContent>
-              <p className="text-foreground leading-relaxed">{item.feedback}</p>
-            </CardContent>
-          </Card>
+              <p className="text-sm text-gray-600 mt-1">{item.email}</p>
+            </div>
+            <div className="px-6 pb-6">
+              <p className="text-gray-900 leading-relaxed">{item.feedback}</p>
+            </div>
+          </div>
         ))}
       </div>
     </div>

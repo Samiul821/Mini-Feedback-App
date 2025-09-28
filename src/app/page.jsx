@@ -2,10 +2,32 @@
 
 import FeedbackForm from "@/components/FeedbackForm";
 import FeedbackList from "@/components/FeedbackList";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function page() {
+  const [feedback, setFeedback] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const fetchFeedback = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/feedback");
+      const data = await response.json();
+      setFeedback(data.feedback || []);
+    } catch (error) {
+      console.error("Failed to fetch feedback:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchFeedback();
+  }, []);
+
+  const handleFeedbackSubmitted = () => {
+    fetchFeedback();
+  };
 
   return (
     <main className="min-h-screen bg-background py-12 px-4">
@@ -21,18 +43,16 @@ export default function page() {
           </p>
         </div>
 
-        <FeedbackForm />
+        <FeedbackForm onFeedbackSubmitted={handleFeedbackSubmitted} />
 
         <div className="pt-8">
-          {
-            isLoading ? (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground">Loading feedback...</p>
-              </div>
-            ) : (
-              <FeedbackList />
-            )
-          }
+          {isLoading ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Loading feedback...</p>
+            </div>
+          ) : (
+            <FeedbackList feedback={feedback} />
+          )}
         </div>
       </div>
     </main>

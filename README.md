@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Feedback Hub
+A web app for submitting and viewing feedback, built for the Sofof Tech Front-End Developer Intern assessment. Share your thoughts to help build something amazing together.
+Features
 
-## Getting Started
+Feedback form (name, email, feedback)
+Displays submitted feedback
+Next.js API routes for POST and GET requests
+In-memory storage
+Responsive UI with Tailwind CSS
 
-First, run the development server:
+Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Next.js (App Router)
+Tailwind CSS
+In-memory array
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Setup
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Clone repo:git clone https://github.com/Samiul821/Mini-Feedback-App
+cd Mini-Feedback-App
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+Install dependencies:npm install
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run app:npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Open http://localhost:3000.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Live Demo
+https://mini-feedback-app.vercel.app/
+Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feedback resets on server restart.
+Built with create-next-app and uses next/font for Geist font optimization.
+Deployed on Vercel.
+
+Contact
+Md Samiul Islam: smsamiul821@gmail.com
